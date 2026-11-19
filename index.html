@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucio Tarquino | Oráculo y Sabiduría Ancestral</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-obsidian: #08070d;
+      --bg-card: rgba(20, 16, 32, 0.72);
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --amber-glow: rgba(212, 175, 55, 0.25);
+      --purple-mystic: #3b1d5e;
+      --text-main: #f4f1ea;
+      --text-muted: #b8b0c4;
+      --border-gold: rgba(212, 175, 55, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(76, 33, 122, 0.35) 0%, transparent 55%),
+        radial-gradient(circle at 85% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 15% 75%, rgba(59, 29, 94, 0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #06050a 0%, #0d0a17 50%, #060509 100%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Partículas / textura mística sutil */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(212, 175, 55, 0.14) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* Encabezado Hero */
+    header {
+      text-align: center;
+      padding: 4rem 1.5rem 3.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(28, 21, 46, 0.85) 0%, rgba(10, 8, 18, 0.92) 100%);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), inset 0 0 40px rgba(212, 175, 55, 0.08);
+      position: relative;
+    }
+
+    .emblem {
+      font-size: 2.4rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px var(--amber-glow);
+      letter-spacing: 0.35em;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(1.65rem, 3.8vw, 2.75rem);
+      color: var(--gold-light);
+      line-height: 1.3;
+      max-width: 860px;
+      margin: 0 auto 1.25rem;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gold-primary);
+      letter-spacing: 0.06em;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Sección Atmósfera */
+    .atmosphere {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 3.5rem;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      color: var(--gold-primary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      width: 90px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin: 0 auto 1.75rem;
+    }
+
+    .atmosphere p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      color: var(--text-main);
+      font-weight: 300;
+    }
+
+    /* Servicios */
+    .services-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-primary);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.16);
+    }
+
+    .service-number {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.22rem;
+      color: var(--gold-light);
+      margin-bottom: 0.85rem;
+      line-height: 1.35;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      font-weight: 300;
+    }
+
+    /* Promoción Sagrada */
+    .promo-box {
+      background: linear-gradient(135deg, rgba(59, 29, 94, 0.65) 0%, rgba(28, 18, 44, 0.9) 100%);
+      border: 1px solid var(--gold-primary);
+      border-radius: 18px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.14);
+    }
+
+    .promo-box h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold-light);
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.06em;
+    }
+
+    .promo-box p {
+      font-size: 1.12rem;
+      color: var(--text-main);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Contacto / CTA */
+    .cta-section {
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 3rem 1.5rem;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.08rem;
+      text-decoration: none;
+      padding: 1rem 2.25rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(37, 211, 102, 0.5);
+    }
+
+    .phone-display {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="emblem">✦ ☽ ✦</div>
+      <h1>"Soy el Último Heredero de Lucio Tarquino el Soberbio, el último rey de Roma, heredero de los Libros Sibilinos."</h1>
+      <p class="subtitle">Guardián de los arcanos mayores, la magia etrusca y la sabiduría ancestral del fuego cósmico.</p>
+    </header>
+
+    <section class="atmosphere">
+      <h2 class="section-title">Atmósfera y Esencia</h2>
+      <div class="divider"></div>
+      <p>
+        Bajo la atenta mirada de runas sagradas, duendes, hadas y entidades elementales, un trono ancestral resplandece en la penumbra. Sosteniendo una esfera de cristal que concentra los hilos del destino, el conocimiento de los antiguos imperios se abre paso hacia ti.
+      </p>
+    </section>
+
+    <section class="services-section">
+      <h2 class="section-title">Servicios Ancestrales</h2>
+      <div class="divider"></div>
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-number">Arcano I</span>
+          <h3>1. La Lectura del Oráculo</h3>
+          <p>Descifra tu destino a través de las cartas y los arcanos sagrados para revelar los caminos ocultos ante ti.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">Arcano II</span>
+          <h3>2. Amarres de Vínculo Eterno</h3>
+          <p>Sella uniones inquebrantables mediante rituales profundos de alta magia y ataduras de poder.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">Arcano III</span>
+          <h3>3. Pócimas Astrales</h3>
+          <p>Elixires y preparaciones con energía concentrada para alinear tu espíritu, abrir caminos y atraer prosperidad.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">Arcano IV</span>
+          <h3>4. Limpieza y Purificación / Desbloqueo de Puertas Internas</h3>
+          <p>Libera tu campo energético de cargas pesadas, rompe bloqueos invisibles y abre las puertas internas de tu poder y evolución espiritual.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">Arcano V</span>
+          <h3>5. Sesiones de Mediumnidad y Protección Astral</h3>
+          <p>Conecta con ancestros, cruza los velos del más allá y blinda tu energía contra cualquier sombra u oscuridad.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="promo-box">
+      <h2>✦ Promoción Sagrada ✦</h2>
+      <p>Contrata cualquier ritual o trabajo y recibe una lectura de cartas de cortesía totalmente gratis.</p>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="section-title">Atención y Consultas Privadas</h2>
+      <div class="divider"></div>
+      <p>Inicia tu consulta directamente por WhatsApp para abrir las puertas de tu guía personal.</p>
+      <a
+        class="whatsapp-btn"
+        href="https://wa.me/573506744314?text=Hola%2C%20deseo%20iniciar%20una%20consulta%20privada%20con%20el%20Or%C3%A1culo%20de%20Lucio%20Tarquino."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar por WhatsApp
+      </a>
+      <span class="phone-display">Línea directa: +57 350 674 4314</span>
+    </section>
+
+    <footer>
+      <p>© Lucio Tarquino — Sabiduría Ancestral y Oráculo</p>
+    </footer>
+  </div>
+</body>
+</html>
